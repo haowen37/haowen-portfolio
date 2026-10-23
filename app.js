@@ -86,6 +86,7 @@
     return `<section class="${lead ? 'project-artworks' : 'process-section'}" aria-label="${escape(section.title)}">${lead ? '' : `<div class="process-heading"><h2>${escape(section.title)}</h2></div>`}<div class="process-media${section.layout === 'stack' ? ' project-applications' : ''}">${figures}</div></section>`;
   }
   function project(p) {
+    if (p.caseStudy) { window.location.replace(p.caseStudy); return; }
     artworkMotionObserver?.disconnect();
     const index = data.projects.indexOf(p), next = data.projects[(index + 1) % data.projects.length];
     if (p.media) {

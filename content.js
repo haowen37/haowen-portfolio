@@ -44,6 +44,6 @@ window.PORTFOLIO = {
         {src:"assets/edit-cinema/in-the-mood-for-love-full.png?v=e3dca7465b28",alt:"Complete EDIT. In the Mood for Love film page, from the film still and synopsis through production information, screenings and footer",width:1430,height:3186,caption:"In the Mood for Love — complete film detail",presentation:"longform"}
       ]}]
     },
-    {slug:"running",title:"Running club",client:"Running club",type:"Art direction & communication",image:"assets/project-running.svg",imageAlt:"Lime placeholder for the running club project",tone:"lime",brief:"A local running club wants to attract new members while preserving the culture and sense of belonging that helped its community grow.",focus:"Explain the central idea behind your communication and how it connects with new and existing members.",process:"Show the visual direction, message explorations and selected development work.",outcome:"Replace these placeholders with your campaign and examples of its online and offline applications.",deliverables:["Campaign concept","Event posters","Social content"]}
+    {slug:"ebike",title:"Near Horizon",client:"Near Horizon",type:"Brand identity & digital design",summary:"An electric mobility concept. Make far feel close.",projectLabel:"Electric mobility · Brand & website",image:"ebike/public/images/drive.webp",imageAlt:"Near Horizon ivory electric bicycle frame and belt drive",caseStudy:"ebike/project.html"}
   ]
 };
