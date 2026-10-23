@@ -1,0 +1,151 @@
+/* KABK reference: natural image proportions, pointer captions, focused button colors. */
+:root { --action-primary: #ff00f4; --action-hover: #00fcbc; --action-ink: #1f1f1f; }
+.site-header { mix-blend-mode: normal; color: var(--ink); background: var(--paper); }
+.site-header .brand-mark { filter: none; }
+.wordmark { color: var(--ink); }
+.desktop-nav a { padding: 8px 12px; transition: background-color .2s ease-out, color .2s ease-out; }
+.desktop-nav a span { display: inline-block; color: var(--ink); }
+.desktop-nav a:hover, .desktop-nav a:focus-visible, .mobile-links a:hover, .mobile-links a:focus-visible { background: var(--action-hover); color: var(--action-ink); text-decoration: none; }
+.desktop-nav a:hover span, .desktop-nav a:focus-visible span { mix-blend-mode: normal; color: var(--action-ink); }
+.menu-toggle { background: var(--action-ink); color: #fff; }
+.menu-toggle:hover, .menu-toggle:focus-visible { background: var(--action-hover); color: var(--action-ink); }
+.back-link:hover, .contact-back-top:hover { background: var(--action-hover); color: var(--action-ink); }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+.gallery--images { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 96px 24px; padding-top: 64px; padding-bottom: 112px; }
+.gallery--images .project-item:nth-child(1) { grid-column: 1 / span 5; }
+.gallery--images .project-item:nth-child(2) { grid-column: 8 / span 5; margin-top: 190px; }
+.gallery--images .project-item:nth-child(3) { grid-column: 5 / span 5; margin-top: 0; }
+.gallery--images .project-item .project-image { width: 100%; height: auto; max-height: none; aspect-ratio: auto; object-fit: contain; }
+/* Animate only the artwork; a transformed caption ancestor would trap fixed tooltips. */
+.gallery--images .project-image {
+  --drift-distance: clamp(4px, .7vw, 10px);
+  animation: artwork-drift 5.8s cubic-bezier(.45,0,.55,1) infinite alternate;
+  animation-play-state: paused;
+}
+.gallery--images .project-item:nth-child(2) .project-image { animation-duration: 7.4s; animation-delay: -2.8s; }
+.gallery--images .project-item:nth-child(3) .project-image { animation-duration: 6.6s; animation-delay: -4.6s; }
+.gallery--images .project-item[data-in-view] .project-image { animation-play-state: running; }
+.gallery--images .project-item:hover .project-image,
+.gallery--images .project-item:focus-within .project-image,
+.page-hidden .gallery--images .project-image,
+.menu-open .gallery--images .project-image { animation-play-state: paused; }
+@keyframes artwork-drift {
+  from { transform: translate3d(0, calc(-1 * var(--drift-distance)), 0); }
+  to { transform: translate3d(0, var(--drift-distance), 0); }
+}
+/* The supplied presentation boards already contain their own layout and captions. */
+.cinema-sequence {
+  display: grid;
+  gap: 32px;
+  margin: 0 var(--gutter) 88px;
+}
+.cinema-sequence figure { margin: 0; min-width: 0; }
+.cinema-sequence .cinema-longform { width: min(100%, 1040px); justify-self: center; margin-block: 32px; }
+.cinema-sequence img { cursor: default; }
+.cinema-sequence img { display: block; width: 100%; height: auto; }
+.project-title-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+  margin-bottom: 18px;
+}
+.project-title-line h1 { margin-bottom: 0; }
+.project-website {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  font-size: 16px;
+  letter-spacing: 0;
+  padding: 12px 18px;
+  background: var(--action-ink);
+  color: #fff;
+  text-decoration: none;
+  transition: background-color .2s ease-out, color .2s ease-out;
+}
+.project-website:hover, .project-website:focus-visible { background: var(--action-hover); color: var(--action-ink); }
+.project-website .arrow { width: 20px; height: 20px; }
+.project-visual { position: relative; overflow: visible; }
+.project-details {
+  position: fixed;
+  z-index: 50;
+  left: var(--caption-x, 16px);
+  top: var(--caption-y, 16px);
+  width: min(440px, calc(100vw - 32px));
+  padding: 24px 28px;
+  background: rgba(255,255,255,.96);
+  color: var(--action-ink);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .15s ease-out;
+  pointer-events: none;
+}
+.project-details h2 {
+  margin: 0;
+  font-size: 36px;
+  line-height: 1.15;
+  font-weight: 400;
+  letter-spacing: -.03em;
+}
+.project-details .project-category { margin: 12px 0 0; font-size: 16px; line-height: 1.4; letter-spacing: 0; }
+.project-details .project-description { margin: 20px 0 0; font-size: 18px; line-height: 1.45; letter-spacing: -.02em; }
+.project-link:hover h2 { text-decoration: none; }
+.project-link:focus-visible .project-details { position: absolute; inset: auto auto 16px 16px; width: min(440px, calc(100% - 32px)); opacity: 1; visibility: visible; }
+@media (hover: hover) and (pointer: fine) {
+  .project-link[data-pointer-ready]:hover .project-details { opacity: 1; visibility: visible; }
+}
+@media (max-width: 700px) {
+  .gallery--images { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 56px 0; padding-top: 40px; padding-bottom: 64px; }
+  .gallery--images .project-item:nth-child(1) { grid-column: 1 / span 10; }
+  .gallery--images .project-item:nth-child(2) { grid-column: 2 / span 11; margin-top: 0; }
+  .gallery--images .project-item:nth-child(3) { grid-column: 2 / span 10; margin-top: 0; }
+  .cinema-sequence { gap: 16px; margin: 0 0 44px; }
+  .project-details { padding: 16px; }
+  .project-details h2 { font-size: 28px; }
+  .project-details .project-category { font-size: 14px; }
+  .project-details .project-description { font-size: 16px; margin-top: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gallery--images .project-image { animation: none; transform: none; }
+  .project-details { transition: none; transform: none; }
+}
+
+.contact-back-top { grid-column: 1 / -1; justify-self: end; display: inline-flex; align-items: center; gap: 10px; padding: 8px 12px; color: inherit; font-size: 16px; text-decoration: none; }
+.contact-back-top .arrow { width: 18px; height: 18px; }
+.contact-back-top:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+
+/* Fixed original LHW identity. */
+.brand-mark { height: 56px; }
+@media(max-width:1000px){.brand-mark { height: 50px; }}
+@media(max-width:700px){.brand-mark { height: 38px; }}
+
+
+
+/* Local Creative Cloud font preview: Regular throughout. */
+@font-face {
+  font-family: 'Portfolio Unica';
+  src: local('Neue Haas Unica W1G Regular'), local('NeueHaasUnicaW1G-Regular'), local('Neue Haas Unica W1G');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+body, body * {
+  font-family: 'Portfolio Unica', Arial, sans-serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  font-synthesis: none;
+  letter-spacing: normal !important;
+  line-height: 1.17 !important;
+}
