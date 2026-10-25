@@ -13,9 +13,6 @@
 .project-posters { grid-template-columns: 1fr; gap: 64px; }
 .project-posters figure { width: min(100%, 1000px); justify-self: center; }
 .project-clothing { grid-template-columns: 1fr; gap: 48px; width: min(76%, 1000px); margin-inline: auto; }
-.desktop-nav a span { position: relative; }
-.desktop-nav a span::after { content: ''; position: absolute; inset: auto 0 -5px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform 200ms ease-out; }
-.desktop-nav a:hover span::after, .desktop-nav a:focus-visible span::after, .desktop-nav a[aria-current] span::after { transform: scaleX(1); }
 .project-website .arrow, .back-link .arrow, .contact-back-top .arrow, .next-project .arrow, .pill svg, .explore svg { transition: transform 220ms ease-out; }
 .project-website:hover .arrow, .next-project:hover .arrow, .pill:hover svg { transform: translate(3px,-3px); }
 .back-link:hover .arrow { transform: translateX(-4px); }
@@ -63,3 +60,6 @@ body.artwork-viewing { overflow: hidden; }
   .project-link:hover .project-frame { scale: 1; }
   .project-website:hover .arrow, .next-project:hover .arrow, .back-link:hover .arrow, .contact-back-top:hover .arrow, .pill:hover svg { transform: none; }
 }
+
+/* Navigation uses color feedback without underlines in any state. */
+.desktop-nav a, .desktop-nav a:hover, .desktop-nav a:focus-visible, .desktop-nav a[aria-current] { text-decoration: none; }
