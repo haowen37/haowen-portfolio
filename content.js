@@ -3,9 +3,7 @@ window.PORTFOLIO = {
   name: "HAOWEN",
   logo: "assets/logos/lhw/lhw-original.png",
   year: "2026",
-  aboutTitle: "A little about me.",
-  about: "Your introduction goes here. Share what you create, what interests you, and the kind of work you would like to explore next.",
-  email: "", // Add your real email to activate the email link.
+  email: "lhwzuinb123@outlook.com",
   location: "Your location",
   projects: [
     {

@@ -48,7 +48,7 @@
 
   function contact() {
     const email = data.email.trim();
-    return `<section class="contact-section" id="contact" aria-labelledby="contact-title"><h2 id="contact-title">Let's talk.</h2><div class="contact-details"><p>A place for new ideas, conversations and possibilities.</p>${email ? `<a class="email" href="mailto:${escape(email)}">${escape(email)}</a>` : '<span class="email">Your email address</span><p class="contact-placeholder">Contact details to be added.</p>'}</div><a class="contact-back-top" href="#home">Back to top <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a></section>`;
+    return `<section class="contact-section" id="contact" aria-labelledby="contact-title"><h2 id="contact-title">Let's talk.</h2><div class="contact-details">${email ? `<a class="email" href="mailto:${escape(email)}">${escape(email)}</a>` : '<span class="email">Your email address</span><p class="contact-placeholder">Contact details to be added.</p>'}</div><a class="contact-back-top" href="#home">Back to top <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a></section>`;
   }
   function projectTile(p) {
     const cover = p.media?.[0]?.images[0];
@@ -76,7 +76,7 @@
     main.querySelectorAll('[data-pointer-ready]').forEach(link => delete link.dataset.pointerReady);
   }, {passive:true});
   function home() {
-    main.innerHTML = `<h1 class="visually-hidden">Portfolio</h1><section class="gallery gallery--images" id="work" aria-label="Portfolio projects">${data.projects.map(projectTile).join('')}</section><section class="about-section" id="about" aria-labelledby="about-title"><div><h2 id="about-title">${escape(data.aboutTitle)}</h2></div><div class="about-copy"><p>${escape(data.about)}</p></div></section>${contact()}`;
+    main.innerHTML = `<h1 class="visually-hidden">Portfolio</h1><section class="gallery gallery--images" id="work" aria-label="Portfolio projects">${data.projects.map(projectTile).join('')}</section>${contact()}`;
     document.title = `${data.name} — Creative Portfolio`;
     artworkMotionObserver?.disconnect();
     main.querySelectorAll('.project-item').forEach(item => artworkMotionObserver?.observe(item));
