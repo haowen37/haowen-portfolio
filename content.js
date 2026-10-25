@@ -19,7 +19,7 @@ window.PORTFOLIO = {
           {src:"assets/run-into/forest-poster.png",alt:"RUN INTO forest running poster: Running club. All paces welcome.",width:1080,height:1350,caption:"Forest run — club poster"},
           {src:"assets/run-into/your-own-pace-poster.png",alt:"Your own pace poster with an orange-clad runner, a white route outline and the message Come solo. Run together.",width:1080,height:1350,caption:"Your own pace — route poster"}
         ]},
-        {title:"Club clothing",layout:"stack",images:[
+        {title:"Club clothing",layout:"clothing",images:[
           {src:"assets/run-into/washed-tshirt.png",alt:"Front and back of a washed black RUN INTO T-shirt with white club typography",width:1586,height:992,caption:"Washed T-shirt — front and back"},
           {src:"assets/run-into/grey-sweatshirt.png",alt:"Front and back of a grey RUN INTO sweatshirt with black lettering across the chest, back and sleeves",width:1585,height:992,caption:"Grey sweatshirt — front and back"}
         ]},
@@ -33,7 +33,7 @@ window.PORTFOLIO = {
       summary:"An independent cinema website, from film discovery to the programme and Journal.",
       projectLabel:"Independent cinema · Website",presentation:"cinema",website:"https://editcinema.pages.dev/",
       image:"assets/edit-cinema/home-desktop-mobile.png?v=026c4da83f08",
-      imageAlt:"EDIT. independent cinema website shown on desktop and mobile",
+      imageAlt:"EDIT. independent cinema desktop homepage with film titles and screening times",
       media:[{title:"EDIT. website designs",images:[
         {src:"assets/edit-cinema/home-desktop-mobile.png?v=026c4da83f08",alt:"Updated EDIT. homepage and mobile interface with film titles, screening times and a glimpse of the Agnes Varda series",width:2560,height:1700,caption:"Homepage & mobile"},
         {src:"assets/edit-cinema/programme-film-detail.png?v=0a4a1d10403b",alt:"Updated EDIT. programme and film detail pages showing the complete desktop title, film still and synopsis",width:2560,height:1900,caption:"Programme & film detail"},

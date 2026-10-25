@@ -52,7 +52,7 @@
   }
   function projectTile(p) {
     const cover = p.media?.[0]?.images[0];
-    return `<article class="project-item"><a class="project-link" href="#project/${escape(p.slug)}" aria-label="${escape(p.title)} — ${escape(p.type)}${p.summary ? `. ${escape(p.summary)}` : ''}"><div class="project-visual"><img class="project-image" src="${escape(p.image)}" alt="${escape(p.imageAlt)}" width="${cover?.width || 1200}" height="${cover?.height || 1000}"><div class="project-details" aria-hidden="true"><h2>${escape(p.title)}</h2><p class="project-category">${escape(p.type)}</p>${p.summary ? `<p class="project-description">${escape(p.summary)}</p>` : ''}</div></div></a></article>`;
+    return `<article class="project-item" data-project="${escape(p.slug)}"><a class="project-link" href="#project/${escape(p.slug)}" aria-label="${escape(p.title)} — ${escape(p.type)}${p.summary ? `. ${escape(p.summary)}` : ''}"><div class="project-visual"><div class="project-frame"><img class="project-image" src="${escape(p.image)}" alt="${escape(p.imageAlt)}" width="${cover?.width || 1200}" height="${cover?.height || 1000}"></div><div class="project-details" aria-hidden="true"><h2>${escape(p.title)}</h2><p class="project-category">${escape(p.type)}</p>${p.summary ? `<p class="project-description">${escape(p.summary)}</p>` : ''}</div></div></a></article>`;
   }
   // Keep the project caption beside the pointer without covering its target.
   main.addEventListener('pointermove', event => {
@@ -83,7 +83,7 @@
   }
   function mediaSection(section, lead = false) {
     const figures = section.images.map((item, index) => `<figure><img src="${escape(item.src)}" alt="${escape(item.alt)}" width="${item.width}" height="${item.height}" loading="${lead ? 'eager' : 'lazy'}" decoding="async"${lead && index === 0 ? ' fetchpriority="high"' : ''}><figcaption>${escape(item.caption)}</figcaption></figure>`).join('');
-    return `<section class="${lead ? 'project-artworks' : 'process-section'}" aria-label="${escape(section.title)}">${lead ? '' : `<div class="process-heading"><h2>${escape(section.title)}</h2></div>`}<div class="process-media${section.layout === 'stack' ? ' project-applications' : ''}">${figures}</div></section>`;
+    return `<section class="${lead ? 'project-artworks' : 'process-section'}" aria-label="${escape(section.title)}">${lead ? '' : `<div class="process-heading"><h2>${escape(section.title)}</h2></div>`}<div class="process-media${section.layout === 'clothing' ? ' project-clothing' : section.layout === 'stack' ? ' project-applications' : lead ? ' project-posters' : ''}">${figures}</div></section>`;
   }
   function project(p) {
     if (p.caseStudy) { window.location.replace(p.caseStudy); return; }
@@ -118,9 +118,10 @@
       }
       return;
     }
-    if (currentPage !== 'home') {home(); currentPage = 'home';}
+    const wasHome = currentPage === 'home';
+    if (!wasHome) {home(); currentPage = 'home';}
     const section = document.getElementById(hash === 'projects' ? 'work' : hash);
-    if (section) section.scrollIntoView({behavior:'instant',block:'start'});
+    if (section) section.scrollIntoView({behavior:wasHome && !window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'smooth' : 'instant',block:'start'});
     else window.scrollTo({top:0,behavior:'instant'});
   }
   document.addEventListener('click', e => {
@@ -135,6 +136,13 @@
     if (!menu.hidden) setMenu(false);
     if (link.hash === location.hash) {e.preventDefault(); navigate();}
   });
-  window.addEventListener('hashchange', navigate);
+  let routeTransition;
+  window.addEventListener('hashchange', () => {
+    const next = location.hash.slice(1) || 'home';
+    const changesPage = next.startsWith('project/') ? currentPage !== next : currentPage !== 'home';
+    if (!document.startViewTransition || !changesPage || window.matchMedia('(prefers-reduced-motion: reduce)').matches || next === 'project/ebike') { navigate(); return; }
+    routeTransition?.skipTransition();
+    routeTransition = document.startViewTransition(navigate);
+  });
   navigate();
 })();
