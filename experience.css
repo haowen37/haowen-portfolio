@@ -63,3 +63,7 @@ body.artwork-viewing { overflow: hidden; }
 
 /* Navigation uses color feedback without underlines in any state. */
 .desktop-nav a, .desktop-nav a:hover, .desktop-nav a:focus-visible, .desktop-nav a[aria-current] { text-decoration: none; }
+
+/* Membership cards stay smaller than the campaign posters. */
+.project-applications { width: min(64%, 800px); margin-inline: auto; }
+@media(max-width:700px) { .project-applications { width: 90%; } }
