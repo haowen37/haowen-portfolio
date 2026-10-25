@@ -5,10 +5,10 @@
 @keyframes portfolio-out { to { opacity: 0; } }
 @keyframes portfolio-in { from { opacity: 0; } to { opacity: 1; } }
 .project-frame { overflow: hidden; transition: scale 420ms cubic-bezier(.16,1,.3,1); }
-.gallery--images [data-project="cinema"] .project-frame { position: relative; aspect-ratio: 1860 / 1240; }
+.gallery--images [data-project="cinema"] .project-frame { position: relative; aspect-ratio: 1770 / 1240; }
 .gallery--images [data-project="cinema"] .project-image {
-  position: absolute; width: 137.634409%; max-width: none; height: auto;
-  left: -7.526882%; top: -24.193548%; animation: none;
+  position: absolute; width: 144.632768%; max-width: none; height: auto;
+  left: -7.909604%; top: -24.193548%; animation: none;
 }
 .project-posters { grid-template-columns: 1fr; gap: 64px; }
 .project-posters figure { width: min(100%, 1000px); justify-self: center; }
