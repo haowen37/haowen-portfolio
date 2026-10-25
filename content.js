@@ -42,6 +42,16 @@ window.PORTFOLIO = {
         {src:"assets/edit-cinema/in-the-mood-for-love-full.png?v=e3dca7465b28",alt:"Complete EDIT. In the Mood for Love film page, from the film still and synopsis through production information, screenings and footer",width:1430,height:3186,caption:"In the Mood for Love — complete film detail",presentation:"longform"}
       ]}]
     },
-    {slug:"ebike",title:"Near Horizon",client:"Near Horizon",type:"Brand identity & digital design",summary:"An electric mobility concept. Make far feel close.",projectLabel:"Electric mobility · Brand & website",image:"ebike/public/images/drive.webp",imageAlt:"Near Horizon ivory electric bicycle frame and belt drive",caseStudy:"ebike/project.html"}
+    {slug:"ebike",title:"Near Horizon",client:"Near Horizon",type:"Brand identity & digital design",summary:"An electric mobility concept. Make far feel close.",projectLabel:"Electric mobility · Brand & website",image:"ebike/public/images/drive.webp",imageAlt:"Near Horizon ivory electric bicycle frame and belt drive",caseStudy:"ebike/project.html"},
+    {
+      slug:"identity",title:"HAOWEN",client:"Haowen Long",type:"Personal identity",
+      summary:"A custom LHW monogram and one typeface: Neue Haas Unica.",
+      image:"assets/logos/lhw/lhw-original.png",imageAlt:"Haowen Long's custom white LHW monogram inside a black circle",imageWidth:500,imageHeight:500,
+      presentation:"identity",
+      media:[{title:"Logo & typeface",images:[
+        {src:"assets/personal-identity/01-logo.png?v=20261026",alt:"Haowen Long personal identity: the original custom-drawn LHW monogram and its name lockup",width:2400,height:2400},
+        {src:"assets/personal-identity/02-typeface.png?v=20261026",alt:"Neue Haas Unica W1G Regular, weight 400, with uppercase and lowercase alphabets, numerals, and Arial as the only fallback",width:2400,height:2400}
+      ]}]
+    }
   ]
 };

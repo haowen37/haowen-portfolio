@@ -52,7 +52,7 @@
   }
   function projectTile(p) {
     const cover = p.media?.[0]?.images[0];
-    return `<article class="project-item" data-project="${escape(p.slug)}"><a class="project-link" href="#project/${escape(p.slug)}" aria-label="${escape(p.title)} — ${escape(p.type)}${p.summary ? `. ${escape(p.summary)}` : ''}"><div class="project-visual"><div class="project-frame"><img class="project-image" src="${escape(p.image)}" alt="${escape(p.imageAlt)}" width="${cover?.width || 1200}" height="${cover?.height || 1000}"></div><div class="project-details" aria-hidden="true"><h2>${escape(p.title)}</h2><p class="project-category">${escape(p.type)}</p>${p.summary ? `<p class="project-description">${escape(p.summary)}</p>` : ''}</div></div></a></article>`;
+    return `<article class="project-item" data-project="${escape(p.slug)}"><a class="project-link" href="#project/${escape(p.slug)}" aria-label="${escape(p.title)} — ${escape(p.type)}${p.summary ? `. ${escape(p.summary)}` : ''}"><div class="project-visual"><div class="project-frame"><img class="project-image" src="${escape(p.image)}" alt="${escape(p.imageAlt)}" width="${p.imageWidth || cover?.width || 1200}" height="${p.imageHeight || cover?.height || 1000}"></div><div class="project-details" aria-hidden="true"><h2>${escape(p.title)}</h2><p class="project-category">${escape(p.type)}</p>${p.summary ? `<p class="project-description">${escape(p.summary)}</p>` : ''}</div></div></a></article>`;
   }
   // Keep the project caption beside the pointer without covering its target.
   main.addEventListener('pointermove', event => {
@@ -89,6 +89,12 @@
     if (p.caseStudy) { window.location.replace(p.caseStudy); return; }
     artworkMotionObserver?.disconnect();
     const index = data.projects.indexOf(p), next = data.projects[(index + 1) % data.projects.length];
+    if (p.presentation === 'identity') {
+      const images = p.media.flatMap(section => section.images);
+      main.innerHTML = `<section class="identity-project" aria-labelledby="identity-title"><a class="back-link" href="${homeHref}">${arrow('left')} All projects</a><h1 class="visually-hidden" id="identity-title">${escape(p.title)} — Logo & typeface</h1><div class="identity-boards">${images.map((item, i) => `<figure><img src="${escape(item.src)}" alt="${escape(item.alt)}" width="${item.width}" height="${item.height}" loading="${i ? 'lazy' : 'eager'}" decoding="async"></figure>`).join('')}</div></section>`;
+      document.title = `${p.title} — Personal identity`;
+      return;
+    }
     if (p.media) {
       const artwork = p.presentation === 'cinema'
         ? `<section class="cinema-sequence" aria-label="EDIT. website designs">${p.media.flatMap(section => section.images).map((item, index) => `<figure${item.presentation === 'longform' ? ' class="cinema-longform"' : ''}><img src="${escape(item.src)}" alt="${escape(item.alt)}" width="${item.width}" height="${item.height}" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async"${index === 0 ? ' fetchpriority="high"' : ''}></figure>`).join('')}</section>`

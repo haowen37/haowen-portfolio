@@ -1,6 +1,6 @@
 (() => {
   // Enhance original artwork in place; a failed enhancement leaves images visible.
-  const selector = '.process-media > figure > img, .cinema-sequence > figure > img, .media-stack figure > img';
+  const selector = '.process-media > figure > img, .cinema-sequence > figure > img, .media-stack figure > img, .identity-boards > figure > img';
   let images = [], index = 0, opener;
   const dialog = document.createElement('dialog');
   dialog.className = 'artwork-viewer';
