@@ -10,6 +10,7 @@
   const stage = dialog.querySelector('.viewer-stage');
   const fullImage = stage.querySelector('img');
   const zoomButton = dialog.querySelector('[data-viewer="zoom"]');
+  fullImage.addEventListener('load', () => fullImage.style.setProperty('--original-width', `${fullImage.naturalWidth}px`));
   function zoom(on) {
     stage.classList.toggle('is-zoomed', on);
     zoomButton.textContent = on ? 'Fit image' : 'Zoom in';
@@ -21,7 +22,7 @@
     const image = images[index];
     fullImage.src = image.currentSrc || image.src;
     fullImage.alt = image.alt;
-    fullImage.style.setProperty('--original-width', `${image.naturalWidth || image.width}px`);
+    fullImage.style.setProperty('--original-width', `${image.naturalWidth || Number(image.getAttribute('width')) || image.width}px`);
     dialog.querySelector('.viewer-count').textContent = `${index + 1} / ${images.length}`;
     dialog.querySelector('.viewer-caption').textContent = image.closest('figure')?.querySelector('figcaption')?.textContent || image.alt;
     zoom(false);
