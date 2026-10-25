@@ -34,9 +34,9 @@ body.artwork-viewing { overflow: hidden; }
 .artwork-viewer::backdrop { background: #111; }
 .artwork-viewer[open] { display: grid; grid-template-rows: auto minmax(0,1fr) auto; }
 .viewer-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 20px; border-bottom: 1px solid #444; }
-.viewer-count { font: 14px/1.4 Inter,Arial,sans-serif; }
+.viewer-count { font: 14px/1.4 var(--brand-font); }
 .viewer-controls { display: flex; gap: 8px; }
-.artwork-viewer button { appearance: none; min-width: 44px; min-height: 44px; padding: 10px 14px; border: 1px solid #777; border-radius: 0; background: transparent; color: #fff; font: 14px/1.4 Inter,Arial,sans-serif; cursor: pointer; transition: background-color 150ms ease-out,color 150ms ease-out; }
+.artwork-viewer button { appearance: none; min-width: 44px; min-height: 44px; padding: 10px 14px; border: 1px solid #777; border-radius: 0; background: transparent; color: #fff; font: 14px/1.4 var(--brand-font); cursor: pointer; transition: background-color 150ms ease-out,color 150ms ease-out; }
 .artwork-viewer button:hover { background: #fff; color: #111; }
 .artwork-viewer button:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 .viewer-stage { overflow: auto; display: grid; align-items: center; justify-items: center; padding: 20px; overscroll-behavior: contain; touch-action: pan-x pan-y pinch-zoom; }

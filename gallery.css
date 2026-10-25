@@ -133,16 +133,9 @@
 
 
 
-/* Local Creative Cloud font preview: Regular throughout. */
-@font-face {
-  font-family: 'Portfolio Unica';
-  src: local('Neue Haas Unica W1G Regular'), local('NeueHaasUnicaW1G-Regular'), local('Neue Haas Unica W1G');
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
+/* Regular typography and existing main-page spacing. */
 body, body * {
-  font-family: 'Portfolio Unica', Arial, sans-serif !important;
+  font-family: var(--brand-font) !important;
   font-weight: 400 !important;
   font-style: normal !important;
   font-synthesis: none;

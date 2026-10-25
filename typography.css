@@ -1,0 +1,15 @@
+/* One family across the portfolio and all project pages. */
+@font-face {
+  font-family: 'Portfolio Unica';
+  src: local('Neue Haas Unica W1G Regular'), local('NeueHaasUnicaW1G-Regular'), local('Neue Haas Unica W1G');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+:root { --brand-font: 'Portfolio Unica', Arial, sans-serif; }
+body, body * {
+  font-family: var(--brand-font) !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  font-synthesis: none;
+}
