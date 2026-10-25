@@ -149,3 +149,7 @@ body, body * {
   letter-spacing: normal !important;
   line-height: 1.17 !important;
 }
+/* Work uses the existing magenta, with cyan hover and keyboard feedback. */
+.desktop-nav a[data-nav="work"], .mobile-links a[href="#work"] { background: var(--action-primary); color: var(--action-ink); }
+.desktop-nav a[data-nav="work"]:hover, .desktop-nav a[data-nav="work"]:focus-visible, .mobile-links a[href="#work"]:hover, .mobile-links a[href="#work"]:focus-visible { background: var(--action-hover); color: var(--action-ink); }
+.mobile-links a[href="#work"] { padding-inline: 12px; transition: background-color .2s ease-out; }
