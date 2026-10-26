@@ -24,21 +24,21 @@
 .gallery--images { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 96px 24px; padding-top: 64px; padding-bottom: 112px; }
 .gallery--images .project-item:nth-child(1) { grid-column: 1 / span 5; }
 .gallery--images .project-item:nth-child(2) { grid-column: 8 / span 5; margin-top: 190px; }
-.gallery--images .project-item:nth-child(3) { grid-column: 4 / span 5; margin-top: 0; }
+.gallery--images .project-item:nth-child(3) { grid-column: 3 / span 5; margin-top: 0; }
 .gallery--images .project-item .project-image { width: 100%; height: auto; max-height: none; aspect-ratio: auto; object-fit: contain; }
-/* Animate only the artwork; a transformed caption ancestor would trap fixed tooltips. */
-.gallery--images .project-image {
-  --drift-distance: clamp(4px, .7vw, 10px);
+/* Drift the artwork frame, preserving image crops and fixed pointer captions. */
+.gallery--images .project-frame {
+  --drift-distance: clamp(10px, 1.5vw, 22px);
   animation: artwork-drift 5.8s cubic-bezier(.45,0,.55,1) infinite alternate;
   animation-play-state: paused;
 }
-.gallery--images .project-item:nth-child(2) .project-image { animation-duration: 7.4s; animation-delay: -2.8s; }
-.gallery--images .project-item:nth-child(3) .project-image { animation-duration: 6.6s; animation-delay: -4.6s; }
-.gallery--images .project-item[data-in-view] .project-image { animation-play-state: running; }
-.gallery--images .project-item:hover .project-image,
-.gallery--images .project-item:focus-within .project-image,
-.page-hidden .gallery--images .project-image,
-.menu-open .gallery--images .project-image { animation-play-state: paused; }
+.gallery--images .project-item:nth-child(2) .project-frame { animation-duration: 7.4s; animation-delay: -2.8s; }
+.gallery--images .project-item:nth-child(3) .project-frame { animation-duration: 6.6s; animation-delay: -4.6s; }
+.gallery--images .project-item[data-in-view] .project-frame { animation-play-state: running; }
+.gallery--images .project-item:hover .project-frame,
+.gallery--images .project-item:focus-within .project-frame,
+.page-hidden .gallery--images .project-frame,
+.menu-open .gallery--images .project-frame { animation-play-state: paused; }
 @keyframes artwork-drift {
   from { transform: translate3d(0, calc(-1 * var(--drift-distance)), 0); }
   to { transform: translate3d(0, var(--drift-distance), 0); }
@@ -118,7 +118,7 @@
   .project-details .project-description { font-size: 16px; margin-top: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .gallery--images .project-image { animation: none; transform: none; }
+  .gallery--images .project-frame { animation: none; transform: none; }
   .project-details { transition: none; transform: none; }
 }
 
@@ -148,9 +148,9 @@ body, body * {
 .mobile-links a[href="#work"] { padding-inline: 12px; transition: background-color .2s ease-out; }
 
 /* The identity joins the same floating artwork gallery. */
-.gallery--images .project-item[data-project="identity"] { grid-column: 10 / span 3; margin-top: 200px; }
+.gallery--images .project-item[data-project="identity"] { grid-column: 10 / span 3; margin-top: 100px; }
 .gallery--images [data-project="identity"] .project-frame { overflow: visible; }
-.gallery--images [data-project="identity"] .project-image { animation-duration: 8.2s; animation-delay: -1.4s; }
+.gallery--images [data-project="identity"] .project-frame { animation-duration: 8.2s; animation-delay: -1.4s; }
 .identity-project { padding: 32px var(--gutter) 80px; }
 .identity-project .back-link { margin-bottom: 32px; }
 .identity-boards { display: grid; gap: 40px; width: min(100%, 1400px); margin-inline: auto; }
