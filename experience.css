@@ -37,6 +37,23 @@
 /* Navigation uses color feedback without underlines in any state. */
 .desktop-nav a, .desktop-nav a:hover, .desktop-nav a:focus-visible, .desktop-nav a[aria-current] { text-decoration: none; }
 
+/* Project return buttons share Work's color feedback. */
+.back-link, .project-nav .back-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  background: var(--action-primary, #ff00f4);
+  color: var(--action-ink, #1f1f1f);
+  text-decoration: none;
+  transition: background-color .2s ease-out, color .2s ease-out;
+}
+.back-link:hover, .back-link:focus-visible,
+.project-nav .back-link:hover, .project-nav .back-link:focus-visible {
+  background: var(--action-hover, #00fcbc);
+  color: var(--action-ink, #1f1f1f);
+  text-decoration: none;
+}
+
 /* Membership cards stay smaller than the campaign posters. */
 .project-applications { width: min(64%, 800px); margin-inline: auto; }
 @media(max-width:700px) { .project-applications { width: 90%; } }
