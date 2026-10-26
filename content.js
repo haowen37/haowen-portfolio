@@ -49,8 +49,8 @@ window.PORTFOLIO = {
       image:"assets/logos/lhw/lhw-original.png",imageAlt:"Haowen Long's custom white LHW monogram inside a black circle",imageWidth:500,imageHeight:500,
       presentation:"identity",
       media:[{title:"Logo & typeface",images:[
-        {src:"assets/personal-identity/01-logo.png?v=20261026",alt:"Haowen Long personal identity: the original custom-drawn LHW monogram and its name lockup",width:2400,height:2400},
-        {src:"assets/personal-identity/02-typeface.png?v=20261026",alt:"Neue Haas Unica W1G Regular, weight 400, with uppercase and lowercase alphabets, numerals, and Arial as the only fallback",width:2400,height:2400}
+        {src:"assets/personal-identity/01-logo.png?v=reversed-20261026",alt:"LHW monogram in its primary and reversed versions",width:2400,height:2400},
+        {src:"assets/personal-identity/02-typeface.png?v=simple-20261026",alt:"Neue Haas Unica W1G Regular, weight 400, with uppercase and lowercase alphabets, numerals, and Arial as the only fallback",width:2400,height:2400}
       ]}]
     }
   ]

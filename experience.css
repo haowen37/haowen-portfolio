@@ -22,37 +22,10 @@
 @media (hover:hover) and (pointer:fine) {
   .project-link:hover .project-frame, .project-link:focus-visible .project-frame { scale: 1.025; }
 }
-/* A real button makes full-size artwork available to keyboard and touch users. */
-.artwork-open { appearance: none; display: block; width: 100%; margin: 0; padding: 0; border: 0; border-radius: 0; background: transparent; color: inherit; cursor: zoom-in; position: relative; }
-.artwork-open > img { display: block; }
-.artwork-open::after { content: ''; position: absolute; right: 12px; bottom: 12px; width: 36px; height: 36px; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23171717' stroke-width='1.5'%3E%3Cpath d='M12 5v14M5 12h14'/%3E%3C/svg%3E") center / 18px no-repeat; opacity: 0; transition: opacity 160ms ease-out; }
-.media-stack figure > .artwork-open { height: 100%; }
-.artwork-open:hover::after, .artwork-open:focus-visible::after { opacity: 1; }
-.artwork-open:focus-visible { outline: 2px solid currentColor; outline-offset: 6px; }
-body.artwork-viewing { overflow: hidden; }
-.artwork-viewer { position: fixed; inset: 0; width: 100%; max-width: none; height: 100%; height: 100dvh; max-height: none; margin: 0; padding: 0; border: 0; background: #111; color: #fff; }
-.artwork-viewer::backdrop { background: #111; }
-.artwork-viewer[open] { display: grid; grid-template-rows: auto minmax(0,1fr) auto; }
-.viewer-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 20px; border-bottom: 1px solid #444; }
-.viewer-count { font: 14px/1.4 var(--brand-font); }
-.viewer-controls { display: flex; gap: 8px; }
-.artwork-viewer button { appearance: none; min-width: 44px; min-height: 44px; padding: 10px 14px; border: 1px solid #777; border-radius: 0; background: transparent; color: #fff; font: 14px/1.4 var(--brand-font); cursor: pointer; transition: background-color 150ms ease-out,color 150ms ease-out; }
-.artwork-viewer button:hover { background: #fff; color: #111; }
-.artwork-viewer button:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
-.viewer-stage { overflow: auto; display: grid; align-items: center; justify-items: center; padding: 20px; overscroll-behavior: contain; touch-action: pan-x pan-y pinch-zoom; }
-.viewer-stage img { display: block; width: auto; height: auto; max-width: 100%; max-height: calc(100dvh - 176px); object-fit: contain; cursor: zoom-in; }
-.viewer-stage.is-zoomed { display: block; }
-.viewer-stage.is-zoomed img { width: var(--original-width); height: auto; max-width: none; max-height: none; margin-inline: auto; cursor: zoom-out; }
-.viewer-caption { margin: 0; padding: 12px 20px 18px; min-height: 44px; font-size: 14px; line-height: 1.4; }
+.process-media img, .cinema-sequence img, .media-stack img, .identity-boards img { cursor: default; }
 @media(max-width:700px) {
   .project-posters { gap: 36px; }
   .project-clothing { width: 94%; gap: 32px; }
-  .artwork-open::after { opacity: 1; width: 28px; height: 28px; right: 8px; bottom: 8px; font-size: 20px; }
-  .viewer-toolbar { padding: 8px; gap: 8px; }
-  .viewer-controls { gap: 4px; }
-  .artwork-viewer button { padding: 10px; }
-  .viewer-stage { padding: 8px; }
-  .viewer-caption { padding: 12px; }
 }
 @media(prefers-reduced-motion:reduce) {
   ::view-transition-old(root), ::view-transition-new(root) { animation: none; }

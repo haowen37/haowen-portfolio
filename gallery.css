@@ -156,10 +156,8 @@ body, body * {
 .identity-boards { display: grid; gap: 40px; width: min(100%, 1400px); margin-inline: auto; }
 .identity-boards figure { margin: 0; min-width: 0; }
 .identity-boards img { display: block; width: 100%; height: auto; }
-.identity-boards .artwork-open::after { top: calc(50% - 18px); bottom: auto; }
 @media(max-width:700px) {
   .gallery--images .project-item[data-project="identity"] { grid-column: 3 / span 8; margin-top: 0; }
   .identity-project { padding-top: 24px; padding-bottom: 48px; }
   .identity-boards { gap: 24px; }
-  .identity-boards .artwork-open::after { top: calc(50% - 14px); }
 }
