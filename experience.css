@@ -54,6 +54,21 @@
   text-decoration: none;
 }
 
+.project-website, .next-project {
+  background: var(--action-primary);
+  color: var(--action-ink);
+  text-decoration: none;
+  transition: background-color .2s ease-out, color .2s ease-out;
+}
+.next-project { padding-inline: 20px; }
+.project-website:hover, .project-website:focus-visible,
+.next-project:hover, .next-project:focus-visible {
+  background: var(--action-hover);
+  color: var(--action-ink);
+  text-decoration: none;
+}
+.next-project:hover strong, .next-project:focus-visible strong { text-decoration: none; }
+
 /* Membership cards stay smaller than the campaign posters. */
 .project-applications { width: min(64%, 800px); margin-inline: auto; }
 @media(max-width:700px) { .project-applications { width: 90%; } }
