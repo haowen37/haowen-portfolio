@@ -24,7 +24,7 @@
 .gallery--images { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 96px 24px; padding-top: 64px; padding-bottom: 112px; }
 .gallery--images .project-item:nth-child(1) { grid-column: 1 / span 5; }
 .gallery--images .project-item:nth-child(2) { grid-column: 8 / span 5; margin-top: 190px; }
-.gallery--images .project-item:nth-child(3) { grid-column: 5 / span 5; margin-top: 0; }
+.gallery--images .project-item:nth-child(3) { grid-column: 4 / span 5; margin-top: 0; }
 .gallery--images .project-item .project-image { width: 100%; height: auto; max-height: none; aspect-ratio: auto; object-fit: contain; }
 /* Animate only the artwork; a transformed caption ancestor would trap fixed tooltips. */
 .gallery--images .project-image {
@@ -148,7 +148,7 @@ body, body * {
 .mobile-links a[href="#work"] { padding-inline: 12px; transition: background-color .2s ease-out; }
 
 /* The identity joins the same floating artwork gallery. */
-.gallery--images .project-item[data-project="identity"] { grid-column: 10 / span 3; margin-top: 160px; }
+.gallery--images .project-item[data-project="identity"] { grid-column: 10 / span 3; margin-top: 200px; }
 .gallery--images [data-project="identity"] .project-frame { overflow: visible; }
 .gallery--images [data-project="identity"] .project-image { animation-duration: 8.2s; animation-delay: -1.4s; }
 .identity-project { padding: 32px var(--gutter) 80px; }
